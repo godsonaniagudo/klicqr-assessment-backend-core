@@ -62,13 +62,15 @@ app.get("/users/:id", (req, res) => {
           //Retrieve trends from Trends service
           try {
             const trendsResponse = await axios.get(
-              "http://localhost:8086/trends/" + req.params.id
+              "https://kilqr-assess-trend-service.herokuapp.com/trends/" +
+                req.params.id
             );
 
             console.log("Getting similarities");
             //Retrieve similarities from similarities service
             const similaritiesResponse = await axios.get(
-              "http://localhost:8089/similarities/" + req.params.id
+              "https://kliqr-assess-similarities-serv.herokuapp.com/similarities/" +
+                req.params.id
             );
 
             //return responses from user stats, trends and similarities
